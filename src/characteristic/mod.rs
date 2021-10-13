@@ -92,7 +92,7 @@ pub struct Characteristic<T: fmt::Debug + Default + Clone + Serialize + Send + S
     event_emitter: Option<pointer::EventEmitter>,
 }
 
-impl<T> Characteristic<T> {
+impl<T: fmt::Debug + Default + Clone + Serialize + Send + Sync> Characteristic<T> {
     pub fn new(
         id: u64,
         accessory_id: u64,

@@ -102,8 +102,8 @@ impl<T: fmt::Debug + Default + Clone + Serialize + Send + Sync> Characteristic<T
         max_value: Option<T>,
         min_value: Option<T>,
         step_value: Option<T>,
-        valid_values: Option<Vec<T>>) -> Self {
-        Self::<T> {
+        valid_values: Option<Vec<T>>) -> Characteristic<T> {
+        Characteristic {
             id,
             accessory_id,
             hap_type: hap_type,

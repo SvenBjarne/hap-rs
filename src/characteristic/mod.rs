@@ -109,7 +109,7 @@ impl Characteristic<T> {
             hap_type: hap_type,
             format: format,
             perms: perms,
-            max_value: max_value),
+            max_value: max_value,
             min_value: min_value,
             step_value: step_value,
             valid_values: valid_values,

@@ -92,6 +92,59 @@ pub struct Characteristic<T: fmt::Debug + Default + Clone + Serialize + Send + S
     event_emitter: Option<pointer::EventEmitter>,
 }
 
+impl Characteristic<T> {
+    pub fn new(
+        id: u64,
+        accessory_id: u64,
+        hap_type: HapType,
+        format: Format,
+        perms: Vec<Perm>,
+        description: Option<String>,
+        event_notifications: Option<bool>,
+        value: T,
+        unit: Option<Unit>,
+        max_value: Option<T>,
+        min_value: Option<T>,
+        step_value: Option<T>,
+        max_len: Option<u16>,
+        max_data_len: Option<u32>,
+        valid_values: Option<Vec<T>>,
+        valid_values_range: Option<[T; 2]>,
+        ttl: Option<u64>,
+        pid: Option<u64>,
+        on_read: Option<Box<dyn OnReadFn<T>>>,
+        on_update: Option<Box<dyn OnUpdateFn<T>>>,
+        on_read_async: Option<Box<dyn OnReadFuture<T>>>,
+        on_update_async: Option<Box<dyn OnUpdateFuture<T>>>,
+        event_emitter: Option<pointer::EventEmitter>) -> Self {
+        Self::<T> {
+            id,
+            accessory_id,
+            hap_type,
+            format,
+            perms,
+            description,
+            event_notifications,
+            value,
+            unit,
+            max_value,
+            min_value,
+            step_value,
+            max_len,
+            max_data_len,
+            valid_values,
+            valid_values_range,
+            ttl,
+            pid,
+            on_read,
+            on_update,
+            on_read_async,
+            on_update_async,
+            event_emitter
+        }
+    }
+}
+
 impl<T: fmt::Debug + Default + Clone + Serialize + Send + Sync> fmt::Debug for Characteristic<T> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("Characteristic")

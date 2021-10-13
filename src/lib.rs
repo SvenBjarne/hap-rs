@@ -17,7 +17,6 @@ mod error;
 mod event;
 mod hap_type;
 mod pin;
-mod pointer;
 mod tlv;
 mod transport;
 
@@ -33,6 +32,8 @@ pub mod server;
 pub mod service;
 /// Representations of persistent storage.
 pub mod storage;
+
+pub mod pointer;
 
 /// `Result` type redefinition.
 pub type Result<T> = std::result::Result<T, Error>;

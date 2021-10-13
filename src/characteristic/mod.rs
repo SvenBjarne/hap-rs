@@ -281,7 +281,7 @@ where
     }
 
     /// Sets a pointer to an `EventEmitter` on the characteristic.
-    pub(crate) fn set_event_emitter(&mut self, event_emitter: Option<pointer::EventEmitter>) {
+    pub fn set_event_emitter(&mut self, event_emitter: Option<pointer::EventEmitter>) {
         self.event_emitter = event_emitter;
     }
 }
